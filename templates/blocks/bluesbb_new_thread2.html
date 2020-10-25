@@ -1,0 +1,13 @@
+<ul>
+<{foreach item=thread from=$block.threads}>
+<li><a href="<{$xoops_url}>/modules/bluesbb/thread.php?thr=<{$thread.thread_id}>&amp;sty=<{$thread.topic_style}>&amp;num=
+<{if $thread.topic_style=="1"}>
+	l50#p<{$thread.post_id}>
+<{elseif $thread.topic_style=="2"}>
+	<{$thread.res_id}>
+<{elseif $thread.topic_style=="3"}>
+	<{$thread.post_id}>
+<{/if}>
+"><{$thread.title}></a><{$thread.new_mark}>&nbsp;(<{$thread.replies}>)<{$thread.poster}></li>
+<{/foreach}>
+</ul>

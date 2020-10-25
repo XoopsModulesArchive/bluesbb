@@ -1,0 +1,46 @@
+<!-- start module contents -->
+<table width="100%">
+<tr><td>
+[<a href="viewtopic.php?topic=<{$topic_id}>"><{$topicback}></a>]&nbsp;<a href="viewsread.php?topic=<{$topic_id}>&amp;sread_id=<{$sread_id}>&amp;number=l999"><{$allsreadview}></a>&nbsp;
+<{foreach item=item from=$pnavi}>
+<{$item}>
+<{/foreach}>
+<a href="viewsread.php?topic=<{$topic_id}>&amp;sread_id=<{$sread_id}>&amp;number=l50"><{$new50}></a>
+</td></tr>
+</table>
+<!-- start sread main table -->
+<!-- start sread -->
+<table class="outer" cellspacing="0">
+<{foreach item=sread from=$sreads}>
+<{foreach item=item from=$sread}>
+<{if $item.res_id==1}>
+<tr>
+<td class="head" width="100" align="center"><a id="postid<{$item.post_id}>"></a><{$item.res_id}></td>
+<td class="head"><{$item.title}></td>
+</tr>
+<tr>
+<td class="odd" width="100" align="center"><{$item.uname}><br><{$item.rank}><br><{$item.user_avatar}></td>
+<td class="odd"><{$item.name}>&nbsp;<span class="comDate"><{$item.post_time}></span>&nbsp;<a href="<{$item.url}>"><{$site}></a>&nbsp;<a href="mailto:<{$item.mail}>"><{$mail}></a>&nbsp;[<a href="reply.php?topic=<{$item.topic_id}>&amp;sread_id=<{$item.sread_id}>&amp;post_id=<{$item.post_id}>"><{$replies}></a>]&nbsp;[<a href="pass_check.php?topic=<{$item.topic_id}>&amp;post_id=<{$item.post_id}>"><{$edit}></a>]<br><br><{$item.message}><{$item.user_sig}></td>
+</tr>
+<{else}>
+<tr>
+<td class="even" width="100" align="center"><a id="postid<{$item.post_id}>"></a><{$item.res_id}></td>
+<td class="even"><{$item.title}></td>
+</tr>
+<tr>
+<td class="odd" width="100" align="center"><{$item.uname}><br><{$item.rank}><br><{$item.user_avatar}></td>
+<td class="odd"><{$item.name}>&nbsp;<span class="comDate"><{$item.post_time}></span>&nbsp;<a href="<{$item.url}>"><{$site}></a>&nbsp;<a href="mailto:<{$item.mail}>"><{$mail}></a>&nbsp;[<a href="reply.php?topic=<{$item.topic_id}>&amp;sread_id=<{$item.sread_id}>&amp;post_id=<{$item.post_id}>"><{$replies}></a>]&nbsp;[<a href="pass_check.php?topic=<{$item.topic_id}>&amp;post_id=<{$item.post_id}>"><{$edit}></a>]<br><br><{$item.message}><{$item.user_sig}></td>
+</tr>
+<{/if}>
+<{/foreach}>
+<{/foreach}>
+</table>
+<table width="100%">
+<tr><td>
+[<a href="viewtopic.php?topic=<{$topic_id}>"><{$topicback}></a>]&nbsp;<a href="viewsread.php?topic=<{$topic_id}>&amp;sread_id=<{$sread_id}>&amp;number=l999"><{$allsreadview}></a>&nbsp;<{$last100}><{$next100}><a href="viewsread.php?topic=<{$topic_id}>&amp;sread_id=<{$sread_id}>&amp;number=l50"><{$new50}></a>
+</td></tr>
+</table>
+<!-- end sread -->
+<!-- end sread main table -->
+<div align="right"><{$copyright}></div>
+<!-- end module contents -->

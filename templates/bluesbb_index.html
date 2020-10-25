@@ -1,0 +1,30 @@
+<!-- start module contents -->
+<table cellspacing="0" width="100%">
+<tr>
+<td><b><{$lang_welcomemsg}></b></td>
+<td><div align="right"><a href="<{$bluesbb_url}>/i/index.php"><{$phone}></a></div></td>
+</tr>
+</table>
+<hr>
+<{section name=category loop=$categories}>
+<p>
+<table class="outer" cellspacing="0">
+<tr>
+<th><b><{$categories[category].cat_title}></b></th>
+</tr>
+<{section name=topic loop=$categories[category].topics.topic_id}>
+<tr><td class="even"><a href="<{$bluesbb_url}>/topic.php?top=<{$categories[category].topics.topic_id[topic]}>"><b><{$categories[category].topics.topic_name[topic]}></b></a><br><{$categories[category].topics.topic_info[topic]}></td></tr>
+<tr><td class="odd">
+<{foreach item=thread from=$threads}>
+<{if $thread.topic_id==$categories[category].topics.topic_id[topic]}>
+<{$thread.title}>
+<{/if}>
+<{/foreach}>
+</td></tr>
+<{/section}>
+</table>
+</p>
+<{/section}>
+<{include file='db:system_notification_select.html'}>
+<div align="right"><{$copyright}></div>
+<!-- end module contents -->

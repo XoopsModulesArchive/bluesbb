@@ -1,0 +1,10 @@
+<{foreach item=category from=$block.categories}>
+<{$category.cat_title}><br>
+<ul>
+<{foreach item=topic from=$block.topics}>
+<{if $category.cat_id==$topic.cat_id}>
+<li><a href="<{$xoops_url}>/modules/bluesbb/topic.php?top=<{$topic.topic_id}>"><{$topic.topic_name}></a></li>
+<{/if}>
+<{/foreach}>
+</ul>
+<{/foreach}>

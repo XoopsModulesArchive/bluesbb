@@ -1,0 +1,10 @@
+[<a href="viewtopic.php?topic=<{$topic_id}>"><{$topicback}></a>]<br>
+<table class="outer" cellspacing="0">
+<tr><td class="odd">
+<{foreach item=sread_name_list from=$sread_name_list}>
+<a href="viewsread.php?topic=<{$sread_name_list.topic_id}>&amp;sread_id=<{$sread_name_list.sread_id}>&amp;number=l50"><{$sread_name_list.srn}>:<{$sread_name_list.title}>(<{$sread_name_list.count}>)</a>&nbsp;&nbsp;
+<{/foreach}>
+<div align="right"><{$next300}></div>
+</td></tr>
+</table>
+<div align="right"><{$copyright}></div>

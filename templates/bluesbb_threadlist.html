@@ -1,0 +1,18 @@
+[<a href="<{$bluesbb_url}>/topic.php?top=<{$topic_id}>"><{$topicback}></a>]<br>
+<table class="outer" cellspacing="0">
+<tr><td class="odd">
+<{foreach item=thread_name_list from=$thread_name_list}>
+<a href="<{$bluesbb_url}>/thread.php?thr=<{$thread_name_list.thread_id}>&amp;sty=<{$thread_name_list.topic_style}>&amp;num=
+<{if $thread_name_list.topic_style=="1"}>
+	l50#p<{$thread_name_list.post_id}>
+<{elseif $thread_name_list.topic_style=="2"}>
+	<{$thread_name_list.res_id}>
+<{elseif $thread_name_list.topic_style=="3"}>
+	<{$thread_name_list.post_id}>
+<{/if}>
+"><{$thread_name_list.srn}>:&nbsp;<{$thread_name_list.title}>(<{$thread_name_list.count}>)</a>&nbsp;&nbsp;
+<{/foreach}>
+<div align="right"><{$next300}></div>
+</td></tr>
+</table>
+<div align="right"><{$copyright}></div>

@@ -1,0 +1,12 @@
+<!-- start module contents -->
+<{if $topic_style=="1"}>
+	<{include file='db:bluesbb_inc_thread.html'}>
+	<{include file='db:system_notification_select.html'}>
+<{elseif $topic_style=="2"}>
+	<{include file='db:bluesbb_inc_tree.html'}>
+	<{include file='db:system_notification_select.html'}>
+<{elseif $topic_style=="3"}>
+	<{include file='db:bluesbb_inc_order.html'}>
+<{/if}>
+<div align="right"><{$copyright}></div>
+<!-- end module contents -->

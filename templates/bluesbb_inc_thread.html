@@ -1,0 +1,55 @@
+<table width="100%">
+<tr><td>
+[<a href="<{$bluesbb_url}>/topic.php?top=<{$topic_id}>&amp;sty=<{$topic_style}>"><{$topicback}></a>]&nbsp;<a href="<{$bluesbb_url}>/thread.php?thr=<{$thread_id}>&amp;sty=<{$topic_style}>&amp;num=l999"><{$allthreadview}></a>&nbsp;
+<{foreach item=item from=$pnavi}>
+<{$item}>
+<{/foreach}>
+<a href="<{$bluesbb_url}>/thread.php?thr=<{$thread_id}>&amp;sty=<{$topic_style}>&amp;num=l50"><{$new50}></a>
+</td></tr>
+</table>
+<!-- start thread main table -->
+<table class="outer" cellspacing="0">
+<{foreach item=thread from=$threads}>
+<{foreach item=item from=$thread}>
+<{if $item.res_id==1}>
+	<tr>
+	<td class="head" width="100" align="center"><a id="p<{$item.post_id}>"></a><{$item.res_id}></td>
+	<td class="head"><{$item.title}></td>
+	</tr>
+	<tr>
+	<td class="odd" width="100" align="center"><{$item.uname}><br><{$item.rank}><br><{$item.user_avatar}></td>
+	<td class="odd"><{$item.name}>&nbsp;<span class="comDate"><{$item.post_time}></span>
+	<{if $item.url!="" && $item.url!="http://"}>
+		&nbsp;<a href="<{$item.url}>"><{$site}></a>
+	<{/if}>
+	<{if $item.mail!=""}>
+		&nbsp;<a href="mailto:<{$item.mail}>"><{$mail}></a>
+	<{/if}>
+	&nbsp;[<a href="<{$bluesbb_url}>/reply.php?pos=<{$item.post_id}>&amp;sty=<{$topic_style}>"><{$replies}></a>]&nbsp;[<a href="<{$bluesbb_url}>/pass_check.php?pos=<{$item.post_id}>&amp;sty=<{$topic_style}>"><{$edit}></a>]<br><br><{$item.message}><{$item.user_sig}></td>
+	</tr>
+<{else}>
+	<tr>
+	<td class="even" width="100" align="center"><a id="p<{$item.post_id}>"></a><{$item.res_id}></td>
+	<td class="even"><{$item.title}></td>
+	</tr>
+	<tr>
+	<td class="odd" width="100" align="center"><{$item.uname}><br><{$item.rank}><br><{$item.user_avatar}></td>
+	<td class="odd"><{$item.name}>&nbsp;<span class="comDate"><{$item.post_time}></span>
+	<{if $item.url!="" && $item.url!="http://"}>
+		&nbsp;<a href="<{$item.url}>"><{$site}></a>
+	<{/if}>
+	<{if $item.mail!=""}>
+		&nbsp;<a href="mailto:<{$item.mail}>"><{$mail}></a>
+	<{/if}>
+	&nbsp;[<a href="<{$bluesbb_url}>/reply.php?pos=<{$item.post_id}>&amp;sty=<{$topic_style}>"><{$replies}></a>]&nbsp;[<a href="<{$bluesbb_url}>/pass_check.php?pos=<{$item.post_id}>&amp;sty=<{$topic_style}>"><{$edit}></a>]<br><br><{$item.message}><{$item.user_sig}></td>
+	</tr>
+<{/if}>
+<{/foreach}>
+<{/foreach}>
+</table>
+
+<table width="100%">
+<tr><td>
+[<a href="<{$bluesbb_url}>/topic.php?top=<{$topic_id}>&amp;sty=<{$topic_style}>"><{$topicback}></a>]&nbsp;<a href="<{$bluesbb_url}>/thread.php?thr=<{$thread_id}>&amp;sty=<{$topic_style}>&amp;num=l999"><{$allthreadview}></a>&nbsp;<{$last100}><{$next100}><a href="<{$bluesbb_url}>/thread.php?thr=<{$thread_id}>&amp;sty=<{$topic_style}>&amp;num=l50"><{$new50}></a>
+</td></tr>
+</table>

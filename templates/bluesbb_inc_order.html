@@ -1,0 +1,24 @@
+<p>
+[<a href="<{$bluesbb_url}>/topic.php?top=<{$topic_id}>&amp;sty=<{$topic_style}>"><{$topicback}></a>]
+</p>
+<!-- start thread main table -->
+<table class="outer" cellspacing="0">
+<{foreach item=thread from=$threads}>
+<tr>
+<td class="even" width="100" align="center"><a id="p<{$thread.post_id}>"></a><{$thread.res_id}></td>
+<td class="even"><{$thread.title}></td>
+</tr>
+<tr>
+<td class="odd" width="100" align="center"><{$thread.uname}><br><{$thread.rank}><br><{$thread.user_avatar}></td>
+<td class="odd"><{$thread.name}>&nbsp;<span class="comDate"><{$thread.post_time}></span>
+<{if $thread.url!="" && $thread.url!="http://"}>
+	&nbsp;<a href="<{$thread.url}>"><{$site}></a>
+<{/if}>
+<{if $thread.mail!=""}>
+	&nbsp;<a href="mailto:<{$thread.mail}>"><{$mail}></a>
+<{/if}>
+&nbsp;[<a href="<{$bluesbb_url}>/reply.php?pos=<{$thread.post_id}>&amp;sty=<{$topic_style}>"><{$replies}></a>]&nbsp;[<a href="<{$bluesbb_url}>/pass_check.php?pos=<{$thread.post_id}>&amp;sty=<{$topic_style}>"><{$edit}></a>]<br><br><{$thread.message}><{$thread.user_sig}></td>
+</tr>
+<{/foreach}>
+</table>
+<!-- end thread main table -->

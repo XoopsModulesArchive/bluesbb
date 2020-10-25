@@ -1,0 +1,64 @@
+<p>
+[<a href="<{$bluesbb_url}>/topic.php?top=<{$topic_id}>&amp;sty=<{$topic_style}>"><{$topicback}></a>]
+</p>
+<hr size="1">
+<{if $tree_single=="off"}>
+	<table border="0" cellspacing="0" cellpadding="0">
+	<{foreach item=thread from=$threads}>
+	<{if $thread.tree_display=="on"}>
+		<tr><td valign="middle">
+		<{$thread.oyapost}>
+		<{if $thread.res_id=="1"}>
+			<a href="<{$bluesbb_url}>/thread.php?thr=<{$thread_id}>&amp;sty=<{$topic_style}>&amp;num=t<{$thread.res_id}>" title="<{$treetop}>"><img src="<{$bluesbb_url}>/images/top.gif" alt="" height="20" width="20" align="top" border="0"></a><span class="even"><a href="#p<{$thread.post_id}>"><{$thread.title2}></a>&nbsp;<{$thread.name2}>&nbsp;<span class="comDate"><{$thread.post_time}></span></span>
+		<{else}>
+			<a href="#p<{$thread.post_id}>"><{$thread.title2}></a>&nbsp;<{$thread.name2}>&nbsp;<span class="comDate"><{$thread.post_time}></span>
+		<{/if}>
+		</td></tr>
+	<{/if}>
+	<{/foreach}>
+	</table>
+	<hr size="1">
+<{/if}>
+<p>
+<!-- start thread main table -->
+<table class="outer" cellspacing="0">
+<{foreach item=flat from=$flats}>
+<{if $flat.tree_display=="on"}>
+	<tr>
+	<td class="even" width="100" align="center"><a id="p<{$flat.post_id}>"></a><{$flat.res_id}></td>
+	<td class="even"><{$flat.title}></td>
+	</tr>
+	<tr>
+	<td class="odd" width="100" align="center"><{$flat.uname}><br><{$flat.rank}><br><{$flat.user_avatar}></td>
+	<td class="odd"><{$flat.name}>&nbsp;<span class="comDate"><{$flat.post_time}></span>
+	<{if $flat.url!="" && $flat.url!="http://"}>
+		&nbsp;<a href="<{$flat.url}>"><{$site}></a>
+	<{/if}>
+	<{if $flat.mail!=""}>
+		&nbsp;<a href="mailto:<{$flat.mail}>"><{$mail}></a>
+	<{/if}>
+	&nbsp;[<a href="<{$bluesbb_url}>/reply.php?pos=<{$flat.post_id}>&amp;sty=<{$topic_style}>"><{$replies}></a>]&nbsp;[<a href="<{$bluesbb_url}>/pass_check.php?pos=<{$flat.post_id}>&amp;sty=<{$topic_style}>"><{$edit}></a>]<br><br><{$flat.message}><{$flat.user_sig}></td>
+	</tr>
+<{/if}>
+<{/foreach}>
+</table>
+<!-- end thread main table -->
+</p>
+<{if $tree_single=="on"}>
+	<hr size="1">
+	<table border="0" cellspacing="0" cellpadding="0">
+	<{foreach item=thread from=$threads}>
+	<tr><td valign="middle">
+	<{$thread.oyapost}>
+	<{if $thread.res_id=="1"}>
+		<a href="<{$bluesbb_url}>/thread.php?thr=<{$thread_id}>&amp;sty=<{$topic_style}>&amp;num=t<{$thread.res_id}>" title="<{$treetop}>"><img src="<{$bluesbb_url}>/images/top.gif" alt="" height="20" width="20" align="top" border="0"></a><span class="even"><a href="<{$bluesbb_url}>/thread.php?thr=<{$thread_id}>&amp;sty=<{$topic_style}>&amp;num=<{$thread.res_id}>"><{$thread.title2}></a>&nbsp;<{$thread.name2}>&nbsp;<span class="comDate"><{$thread.post_time}></span></span>
+	<{else}>
+		<a href="<{$bluesbb_url}>/thread.php?thr=<{$thread_id}>&amp;sty=<{$topic_style}>&amp;num=<{$thread.res_id}>"><{$thread.title2}></a>&nbsp;<{$thread.name2}>&nbsp;<span class="comDate"><{$thread.post_time}></span>
+	<{/if}>
+	<{if $thread.res_id==$st}>
+		<font color="#cc0000"><{$nowhere}></font>
+	<{/if}>
+	</td></tr>
+	<{/foreach}>
+	</table>
+<{/if}>

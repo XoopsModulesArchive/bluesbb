@@ -1,0 +1,129 @@
+<!-- start module contents -->
+<div align="center"><p><font size="+1"><{$topic_name}></font></p></div>
+<p></p>
+<table align="center" width="100%">
+<tr cellpadding="8"><td align="center"><{$topic_info}></td></tr>
+</table>
+<p></p>
+<{if $list_display=="on"}>
+	<table class="outer" cellspacing="0">
+	<tr><td class="odd"><a name="menu"></a>
+	<{foreach item=thread_name_list from=$thread_name_list}>
+	<a href="<{$bluesbb_url}>/thread.php?thr=<{$thread_name_list.thread_id}>&amp;sty=<{$topic_style}>&amp;num=
+	<{if $topic_style=="1"}>
+		l50">
+	<{elseif $topic_style=="2"}>
+		<{$thread_name_list.res_id}>">
+	<{elseif $topic_style=="3"}>
+		<{$thread_name_list.post_id}>">
+	<{/if}>
+	<{$thread_name_list.srn}>:&nbsp;<{$thread_name_list.title}>(<{$thread_name_list.count}>)</a>&nbsp;&nbsp;
+	<{/foreach}>
+	<div align="right"><a href="<{$bluesbb_url}>/threadlist.php?top=<{$topic_id}>&amp;sty=<{$topic_style}>&amp;more=0"><{$threadlist}></a></div>
+	</td></tr>
+	</table>
+	<p></p>
+<{/if}>
+<table class="outer" cellspacing="0">
+<tr>
+<td class="even" nowrap>&nbsp;<a href="<{$bluesbb_url}>/newthread.php?top=<{$topic_id}>&amp;sty=<{$topic_style}>"><{$postnew}></a>&nbsp;|
+<{foreach item=stylechoice from=$style_choice}>
+<{$stylechoice}>
+<{/foreach}>
+<a href="<{$bluesbb_url}>/i/index.php"><{$phone}></a>&nbsp;|&nbsp;<a href="<{$bluesbb_url}>/index.php"><{$topic_index_title}></a>&nbsp;</td>
+<td class="even" nowrap>
+<div align="right"><{$topic_pagenav}></div>
+</td>
+</table>
+<!-- start topic main table -->
+<!-- start topic thread -->
+<{if $topic_style=="1"}>
+	<p></p>
+	<{foreach item=thread from=$threads}>
+	<table class="outer" cellspacing="0">
+	<{foreach item=item from=$thread}>
+	<{if $item.res_id=="1"}>
+		<tr align="right"><td class="overhead" colspan="2" width="100"><{$item.posts}>
+		</td></tr>
+		<tr><td class="head" width="100" align="center"><{$item.res_id}></td>
+		<td class="head"><{$item.title}></td></tr>
+		<tr><td class="odd" width="100" align="center"><{$item.uname}><br><{$item.rank}><br><{$item.user_avatar}></td>
+		<td class="odd"><{$item.name}>&nbsp;<span class="comDate"><{$item.post_time}></span>
+		<{if $item.url!="" && $item.url!="http://"}>
+			&nbsp;<a href="<{$item.url}>"><{$site}></a>
+		<{/if}>
+		<{if $item.mail!=""}>
+			&nbsp;<a href="mailto:<{$item.mail}>"><{$mail}></a>
+		<{/if}>
+		&nbsp;[<a href="<{$bluesbb_url}>/reply.php?pos=<{$item.post_id}>&amp;sty=<{$topic_style}>"><{$replies}></a>]&nbsp;[<a href="<{$bluesbb_url}>/pass_check.php?pos=<{$item.post_id}>&amp;sty=<{$topic_style}>"><{$edit}></a>]<br><br><{$item.message}><{$item.user_sig}></td></tr>
+	<{else}>
+		<tr><td class="even" width="100" align="center"><{$item.res_id}></td>
+		<td class="even"><{$item.title}></td></tr>
+		<tr><td class="odd" width="100" align="center"><{$item.uname}><br><{$item.rank}><br><{$item.user_avatar}></td>
+		<td class="odd"><{$item.name}>&nbsp;<span class="comDate"><{$item.post_time}></span>
+		<{if $item.url!="" && $item.url!="http://"}>
+			&nbsp;<a href="<{$item.url}>"><{$site}></a>
+		<{/if}>
+		<{if $item.mail!=""}>
+			&nbsp;<a href="mailto:<{$item.mail}>"><{$mail}></a>
+		<{/if}>
+		&nbsp;[<a href="<{$bluesbb_url}>/reply.php?pos=<{$item.post_id}>&amp;sty=<{$topic_style}>"><{$replies}></a>]&nbsp;[<a href="<{$bluesbb_url}>/pass_check.php?pos=<{$item.post_id}>&amp;sty=<{$topic_style}>"><{$edit}></a>]<br><br><{$item.message}><{$item.user_sig}></td></tr>
+	<{/if}>
+	<{/foreach}>
+	<tr><td colspan="3" class="foot">
+	<a href="<{$bluesbb_url}>/thread.php?thr=<{$item.thread_id}>&amp;sty=<{$topic_style}>&amp;num=l999"><{$allview}></a>&nbsp;<a href="<{$bluesbb_url}>/thread.php?thr=<{$item.thread_id}>&amp;sty=<{$topic_style}>&amp;num=l50"><{$new50}></a>&nbsp;<a href="<{$bluesbb_url}>/thread.php?thr=<{$item.thread_id}>&amp;sty=<{$topic_style}>&amp;num=2-100">1-100</a>&nbsp;<a href="#menu"><{$topichead}></a>&nbsp;<a href="<{$bluesbb_url}>/topic.php?top=<{$item.topic_id}>"><{$reload}></a>
+	</td></tr>
+	</table>
+	<p></p>
+	<{/foreach}>
+<{elseif $topic_style=="2"}>
+	<p></p>
+	<table border="0" cellspacing="0" cellpadding="0">
+	<{foreach item=thread from=$threads}>
+	<tr align="left"><td valign="middle">
+	<{$thread.oyapost}>
+	<{if $thread.res_id=="1"}>
+		<p></p><a href="<{$bluesbb_url}>/thread.php?thr=<{$thread.thread_id}>&amp;sty=<{$topic_style}>&amp;num=t<{$thread.res_id}>" title="<{$treetop}>"><img src="<{$bluesbb_url}>/images/top.gif" alt="" height="20" width="20" align="top" border="0"></a><span class="even"><a href="<{$bluesbb_url}>/thread.php?thr=<{$thread.thread_id}>&amp;sty=<{$topic_style}>&amp;num=<{$thread.res_id}>"><{$thread.title}></a>&nbsp;<{$thread.name}>&nbsp;<span class="comDate"><{$thread.post_time}></span></span>
+	<{else}>
+		<a href="<{$bluesbb_url}>/thread.php?thr=<{$thread.thread_id}>&amp;sty=<{$topic_style}>&amp;num=<{$thread.res_id}>"><{$thread.title}></a>&nbsp;<{$thread.name}>&nbsp;<span class="comDate"><{$thread.post_time}></span>
+	<{/if}>
+	</td></tr>
+	<{/foreach}>
+	</table>
+	<p></p>
+<{elseif $topic_style=="3"}>
+	<p></p>
+	<table class="outer" cellspacing="0">
+	<{foreach item=item from=$threads}>
+		<tr><td class="head" width="100" align="center"></td>
+		<td class="head"><{$item.title}></td></tr>
+		<tr class="<{cycle values="even,odd}>"><td width="100" align="center"><{$item.uname}><br><{$item.rank}><br><{$item.user_avatar}></td>
+		<td><{$item.name}>&nbsp;<span class="comDate"><{$item.post_time}></span>
+		<{if $item.url!="" && $item.url!="http://"}>
+			&nbsp;<a href="<{$item.url}>"><{$site}></a>
+		<{/if}>
+		<{if $item.mail!=""}>
+			&nbsp;<a href="mailto:<{$item.mail}>"><{$mail}></a>
+		<{/if}>
+		&nbsp;[<a href="<{$bluesbb_url}>/reply.php?pos=<{$item.post_id}>&amp;sty=<{$topic_style}>"><{$replies}></a>]&nbsp;[<a href="<{$bluesbb_url}>/pass_check.php?pos=<{$item.post_id}>&amp;sty=<{$topic_style}>"><{$edit}></a>]<br><br><{$item.message}><{$item.user_sig}></td></tr>
+	<{/foreach}>
+	</table>
+	<p></p>
+<{/if}>
+<!-- end topic thread -->
+<!-- end topic main table -->
+<table class="outer" cellspacing="0">
+<tr>
+<td class="even" nowrap>&nbsp;<a href="<{$bluesbb_url}>/newthread.php?top=<{$topic_id}>&amp;sty=<{$topic_style}>"><{$postnew}></a>&nbsp;|
+<{foreach item=stylechoice from=$style_choice}>
+<{$stylechoice}>
+<{/foreach}>
+<a href="<{$bluesbb_url}>/i/index.php"><{$phone}></a>&nbsp;|&nbsp;<a href="<{$bluesbb_url}>/index.php"><{$topic_index_title}></a>&nbsp;</td>
+<td class="even" nowrap>
+<div align="right"><{$topic_pagenav}></div>
+</td>
+</table>
+<p></p>
+<{include file='db:system_notification_select.html'}>
+<div align="right"><{$copyright}></div>
+<!-- end module contents -->
